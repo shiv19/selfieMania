@@ -1,0 +1,17 @@
+npm-debug.log
+.DS_Store
+
+*.js.map
+hooks/
+lib/
+node_modules/
+platforms/
+tmp/
+typings/
+.idea
+*.keystore
+!app/custom.css
+*.css
+.tmp_backup
+.vscode
+package-lock.json
