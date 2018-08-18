@@ -1,2 +1,27 @@
-<Frame defaultPage="main-page">
-</Frame>
+<TabView 
+  androidSelectedTabHighlightColor="black"
+  selectedTabTextColor= "#000000"
+  iosIconRenderingMode="alwaysOriginal"
+  tabTextColor="#C6C6C6"
+  androidTabsPosition="bottom">
+    <!-- TODO: 
+      Add icon resources on TabViewItem element
+      after adding necessary assets to AppResources folder
+      ios:iconSource="res://explore" android:iconSource="res://explore"
+    -->
+    <TabViewItem title="Explore">
+        <Frame defaultPage="pages/explore/explore-page"></Frame>
+    </TabViewItem>
+
+    <TabViewItem title="Selfie">
+        <Frame defaultPage="pages/selfie/selfie-page"></Frame>
+    </TabViewItem>
+
+    <TabViewItem title="Help">
+        <Frame defaultPage="pages/help/help-page"></Frame>
+    </TabViewItem>
+
+    <TabViewItem title="Profile">
+        <Frame defaultPage="pages/profile/profile-page"></Frame>
+    </TabViewItem>
+</TabView>
