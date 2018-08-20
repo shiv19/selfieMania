@@ -15,3 +15,4 @@ typings/
 .tmp_backup
 .vscode
 package-lock.json
+google-services.json
