@@ -1,0 +1,13 @@
+<Page loaded="pageLoaded" class="page" actionBarHidden="true" xmlns="http://www.nativescript.org/tns.xsd">
+	<GridLayout class="login-container" rows="1/6*, 1/6*, 1/6*, 1/6*, 1/6*, 1/6*">
+		<Label row="0" rowSpan="6" class="gradient" />
+		<StackLayout row="0" rowSpan="3" verticalAlignment="center">
+			<Image horizontalAlignment="center" height="150" src="~/images/logo.png" />
+			<Label fontWeight="bold" marginTop="10" color="white" class="text-center h1 bold" text="Selfie Mania"/>
+		</StackLayout>
+		<StackLayout row="4" rowSpan="2">
+			<Button height="60" backgroundColor="#3B83CD" class="btn btn-primary light facebook active" textTransform="none" text="Login with Facebook" tap="{{ onButtonTap }}" />
+			<Button height="60" backgroundColor="#E37D7A" class="btn btn-primary light google active" textTransform="none" text="Login with Google" tap="{{ onButtonTap }}" />
+		</StackLayout>
+	</GridLayout>
+</Page>
