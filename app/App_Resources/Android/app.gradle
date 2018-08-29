@@ -9,6 +9,7 @@ android {
   defaultConfig {  
     generatedDensities = []
     applicationId = "org.nativescript.selfieMania" 
+    multiDexEnabled true
     
     //override supported platforms
     // ndk {
