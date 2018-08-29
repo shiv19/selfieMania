@@ -1,0 +1,23 @@
+.login-container {
+    background-image: url('~/images/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.gradient{
+    background: linear-gradient(180deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5));
+    opacity: 0.8;
+}
+
+.btn.facebook{
+    background: linear-gradient(180deg, #0D78C4, #2092E4);
+}
+
+.btn.google{
+    background: linear-gradient(180deg, #F75858, #F18585);
+}
+
+.btn{
+    border-radius: 10;
+}
