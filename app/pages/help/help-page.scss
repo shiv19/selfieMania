@@ -1,0 +1,45 @@
+.arrow {
+    background-color: black;
+    color: white;
+    font-size: 40;
+    padding-bottom: 5;
+    padding-left: 10;
+}
+.help-title {
+    background-color: black;
+    color: white;
+    font-size: 25;
+    padding: 20;
+}
+
+.title {
+    font-size: 25;
+    font-weight: 500;
+    padding-left: 18;
+    padding-top: 20;
+    padding-bottom: 20;
+    color: black;
+}
+
+.category {
+    width: 90%;
+    color: black;
+    margin-top: 1;     
+    padding: 8 8;
+    font-size: 15;
+    font-weight: 500;
+}
+
+.card {
+    border-width: 1;
+    border-bottom-width: 2;
+    border-left-color: #DBDBDB;
+    border-right-color: #DBDBDB;
+    border-top-color: #EAEAEA;
+    border-bottom-color: #C6C6C6;
+}
+
+.instructions {
+    padding: 10;
+    font-size: 16;
+}

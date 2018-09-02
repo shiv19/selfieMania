@@ -20,6 +20,9 @@ android {
   }  
   aaptOptions {  
     additionalParameters "--no-version-vectors"
-    cruncherEnabled false
+    cruncherEnabled true
   }  
-} 
+
+  
+}
+
