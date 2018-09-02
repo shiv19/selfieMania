@@ -1,7 +1,7 @@
-var observableModule = require("data/observable");
+const observableModule = require("data/observable");
 
 function HelpViewModel() {
-  var viewModel = observableModule.fromObject({
+  const viewModel = observableModule.fromObject({
     faqs: [
       {
         question: 'How to vote',

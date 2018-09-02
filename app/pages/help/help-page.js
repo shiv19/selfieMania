@@ -1,15 +1,15 @@
-  var frameModule = require("ui/frame");
-  var HelpViewModel = require("./help-view-model");
+  const frameModule = require("ui/frame");
+  const HelpViewModel = require("./help-view-model");
   
-  var helpViewModel = new HelpViewModel();
+  const helpViewModel = new HelpViewModel();
   
-  function pageLoaded(args) {
-    var page = args.object;
+  exports.pageLoaded = function (args) {
+    const page = args.object;
     page.bindingContext = helpViewModel;
   }
 
   
-  function showItems(args) {
+  exports.showItems = function (args) {
     const container = args.view;
     const instructions = container.getChildAt(1);
     const flexLayout = container.getChildAt(0);
@@ -21,7 +21,3 @@
   
     instructions.bindingContext.collapsed = !instructions.bindingContext.collapsed;
   }
-  
-  exports.showItems = showItems;
-  
-  exports.pageLoaded = pageLoaded;
