@@ -4,22 +4,40 @@
 //dependencies {
 //	compile 'com.android.support:recyclerview-v7:+'
 //}
+project.ext {
+  googlePlayServicesVersion = "15.0.1"
+}
 
-android {  
-  defaultConfig {  
+android {
+  defaultConfig {
     generatedDensities = []
-    applicationId = "org.nativescript.selfieMania" 
+    applicationId = "org.nativescript.selfieMania"
     multiDexEnabled true
-    
+
     //override supported platforms
     // ndk {
     //       abiFilters.clear()
     //   		abiFilters "armeabi-v7a"
  		// }
-  
-  }  
-  aaptOptions {  
+
+  }
+  aaptOptions {
     additionalParameters "--no-version-vectors"
     cruncherEnabled false
-  }  
-} 
+  }
+}
+
+def settingsGradlePath
+
+if(project.hasProperty("appResourcesPath")){
+    settingsGradlePath = "$project.appResourcesPath/Android/settings.gradle";
+} else {
+    settingsGradlePath = "$rootDir/../../app/App_Resources/Android/settings.gradle";
+}
+
+def settingsGradleFile = new File(settingsGradlePath);
+
+if(settingsGradleFile.exists())
+{
+    apply from: settingsGradleFile;
+}

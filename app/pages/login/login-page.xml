@@ -6,8 +6,8 @@
 			<Label fontWeight="bold" marginTop="10" color="white" class="text-center h1 bold" text="Selfie Mania"/>
 		</StackLayout>
 		<StackLayout row="4" rowSpan="2">
-			<Button height="60" backgroundColor="#3B83CD" class="btn btn-primary light facebook active" textTransform="none" text="Login with Facebook" tap="{{ onButtonTap }}" />
-			<Button height="60" backgroundColor="#E37D7A" class="btn btn-primary light google active" textTransform="none" text="Login with Google" tap="{{ onButtonTap }}" />
+			<Button height="60" backgroundColor="#3B83CD" class="btn font-weight-bold facebook" textTransform="none" text="Login with Facebook" tap="{{ facebookLogin }}" />
+			<Button height="60" backgroundColor="#E37D7A" class="btn font-weight-bold google" textTransform="none" text="Login with Google" tap="{{ googleLogin }}" />
 		</StackLayout>
 	</GridLayout>
 </Page>
