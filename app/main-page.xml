@@ -1,11 +1,7 @@
-<Page class="page" 
-    loaded="pageLoaded"
-    unloaded="pageUnloaded"
+<Page class="page"
     actionBarHidden="true"
     xmlns="http://www.nativescript.org/tns.xsd">
     <GridLayout>
-        <!-- <ActivityIndicator visibility="{{ !loaded ? 'visible' : 'collapsed' }}"
-            busy="true" width="40" height="40" /> -->
         <TabView 
         androidSelectedTabHighlightColor="black"
         selectedTabTextColor= "#000000"
