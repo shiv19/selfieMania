@@ -5,7 +5,7 @@ const firebase = require('../../shared/FirebaseService').getInstance();
 const routes = require('../../shared/routes');
 
 const loader = new loadingIndicator();
-var options = {
+const options = {
   message: 'Loading...',
   progress: 0.65,
   android: {
@@ -19,15 +19,15 @@ var options = {
 };
 
 function LoginViewModel() {
-  var viewModel = observableModule.fromObject({
-
+  const viewModel = observableModule.fromObject({
+    loading: true,
     facebookLogin: function(args) {
       loader.show(options);
       setTimeout(function() {
         loader.hide();
         // args.object.page.frame.navigate(routes.Home);
         topmost().navigate(routes.Home);
-      }, 5000)
+      }, 5000);
       /*const page = args.object.page;
       loader.show(options);
       firebase.loginWithFacebook().then((response) => {
@@ -67,7 +67,7 @@ function LoginViewModel() {
               duration: 200,
               curve: "ease"
             }
-          })
+          });
         } catch (e) {
           console.log(e.toString());
         }
