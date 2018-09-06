@@ -1,11 +1,8 @@
 const FirebaseServices = require('./shared/FirebaseService');
-const routes = require('./shared/routes');
 const firebase = FirebaseServices.getInstance();
-const observableModule = require('data/observable');
-const frame = require('ui/frame');
+firebase.init().then(() => {}).catch(e => {});
 
 let page;
-
 exports.pageLoaded = function(args) {
   page = args.object;
 };
