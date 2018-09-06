@@ -6,7 +6,7 @@ const Routes = {
   Profile: 'pages/profile/profile-page',
   Selfie: 'pages/selfie/selfie-page',
   Login: 'pages/login/login-page',
-  Home: firebase.getLogin ? 'app-root' : 'pages/login/login-page'
+  Home: 'main-page'
 };
 
 module.exports = Routes;

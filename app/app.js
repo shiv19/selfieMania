@@ -1,9 +1,10 @@
 const application = require('application');
-const FirebaseServices = require('./shared/FirebaseService');
 const routes = require('./shared/routes');
-const firebase = FirebaseServices.getInstance();
-firebase.init();
-application.run({ moduleName: routes.Home });
+
+// this line is needed for firebase to work properly
+require('nativescript-plugin-firebase');
+
+application.run({ moduleName: 'app-root' });
 
 /*
 Do not place any code after the application has been started as it will not

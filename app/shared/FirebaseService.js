@@ -1,7 +1,7 @@
-const firebase = require("nativescript-plugin-firebase");
-const settings = require("tns-core-modules/application-settings");
+const firebase = require('nativescript-plugin-firebase');
+const settings = require('tns-core-modules/application-settings');
 
-function FirebaseService(){
+function FirebaseService() {
 
   this.setLogin = function() {
     settings.setBoolean('isLoggedIn', true);
@@ -13,12 +13,14 @@ function FirebaseService(){
 
   this.getUser = function(userData) {
     const user = firebase.firestore.collection('users').doc(userData.uid);
-    if (user){
+    if (user) {
       this.setUser(userData.uid);
+
       return user;
     } else {
       this.createUser(userData).then(doc => {
         this.setUser(doc.uid);
+
         return doc;
       });
     }
@@ -31,6 +33,7 @@ function FirebaseService(){
 
   this.createUser = function(user) {
     const users = firebase.firestore.collection('users');
+
     return new Promise((resolve) => {
       users.doc(user.uid).set({
         name: user.name,
@@ -41,10 +44,10 @@ function FirebaseService(){
          resolve(documentRef);
         console.log(`user added: ${documentRef}`);
       });
-    })
+    });
   };
 
-  this.loginWithFacebook = function(){
+  this.loginWithFacebook = function() {
     return new Promise((resolve, reject) => {
       firebase.login({
         type: firebase.LoginType.FACEBOOK,
@@ -52,17 +55,18 @@ function FirebaseService(){
           scope: ['public_profile', 'email', 'user_age_range']
         }
       }).then((result) => {
+
         resolve(result);
         // setString('uid', )
         console.log(result);
       }).catch((err) => {
         reject(err);
         console.log(err);
-      })
-    })
+      });
+    });
     };
 
-  this.loginWithGoogle = function(){
+  this.loginWithGoogle = function() {
     return new Promise((resolve, reject) => {
       firebase.login({
         type: firebase.LoginType.GOOGLE,
@@ -72,20 +76,19 @@ function FirebaseService(){
       }).catch((err) => {
         reject(err);
         console.log(err);
-      })
-    })
+      });
+    });
     };
 
   this.init = function() {
-    firebase.init({
+    if (!FirebaseService.initialised) {
+      FirebaseService.initialised = true;
 
-    }).then(function (instance) {
-        console.log("firebase.init done");
-      },
-      function (error) {
-        console.log("firebase.init error: " + error);
-      });
-  }
+      return firebase.init();
+    } else {
+      return Promise.resolve();
+    }
+  };
 }
 
 FirebaseService.getInstance = function() {
@@ -93,5 +96,6 @@ FirebaseService.getInstance = function() {
 };
 
 FirebaseService._instance = new FirebaseService();
+FirebaseService.initialised = false;
 
 module.exports = FirebaseService;
