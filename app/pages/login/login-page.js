@@ -1,44 +1,25 @@
-/*
-In NativeScript, a file with the same name as an XML file is known as
-a code-behind file. The code-behind is a great place to place your view
-logic, and to set up your page’s data binding.
-*/
+const LoginViewModel = require("./login-view-model");
+const loginViewModel = new LoginViewModel();
 
-/*
-NativeScript adheres to the CommonJS specification for dealing with
-JavaScript modules. The CommonJS require() function is how you import
-JavaScript modules defined in other files.
-*/
-var frameModule = require("ui/frame");
-var LoginViewModel = require("./login-view-model");
-
-var loginViewModel = new LoginViewModel();
+const FirebaseServices = require('~/shared/FirebaseService');
+const firebase = FirebaseServices.getInstance();
 
 function pageLoaded(args) {
-  /*
-    This gets a reference this page’s <Page> UI component. You can
-    view the API reference of the Page to see what’s available at
-    https://docs.nativescript.org/api-reference/classes/_ui_page_.page.html
-    */
-  var page = args.object;
-
-  /*
-    A page’s bindingContext is an object that should be used to perform
-    data binding between XML markup and JavaScript code. Properties
-    on the bindingContext can be accessed using the {{ }} syntax in XML.
-    In this example, the {{ message }} and {{ onTap }} bindings are resolved
-    against the object returned by createViewModel().
-
-    You can learn more about data binding in NativeScript at
-    https://docs.nativescript.org/core-concepts/data-binding.
-    */
+  const page = args.object;
   page.bindingContext = loginViewModel;
+
+  firebase.init()
+    .then(() => {
+      console.log('firebase.init done');
+      const isLoggedIn = firebase.getLogin();
+      if (isLoggedIn) {
+        page.frame.navigate('main-page');
+      } else {
+        loginViewModel.set('loading', false);
+      }
+    }).catch((e) => {
+      console.log(e);
+    });
 }
 
-/*
-Exporting a function in a NativeScript code-behind file makes it accessible
-to the file’s corresponding XML file. In this case, exporting the pageLoaded
-function here makes the pageLoaded="pageLoaded" binding in this page’s XML
-file work.
-*/
 exports.pageLoaded = pageLoaded;
