@@ -1,5 +1,3 @@
-const firebase = require('./FirebaseService').getInstance();
-
 const Routes = {
   Explore: 'pages/explore/explore-page',
   Help: 'pages/help/help-page',

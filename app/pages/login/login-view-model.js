@@ -23,13 +23,12 @@ function LoginViewModel() {
     loading: true,
     facebookLogin: function(args) {
       loader.show(options);
-      setTimeout(function() {
+      /*setTimeout(function() {
         loader.hide();
         // args.object.page.frame.navigate(routes.Home);
         topmost().navigate(routes.Home);
-      }, 5000);
-      /*const page = args.object.page;
-      loader.show(options);
+      }, 5000);*/
+      const page = args.object.page;
       firebase.loginWithFacebook().then((response) => {
         try {
           firebase.getUser(response);
@@ -49,7 +48,7 @@ function LoginViewModel() {
       }).catch((err) => {
         loader.hide();
         console.log(err);
-      });*/
+      });
     },
 
     googleLogin: function(args) {
